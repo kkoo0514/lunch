@@ -22,4 +22,5 @@ var/
 .venv
 venv/
 ENV/
-sql_app.db 
+sql_app.db
+.idea
