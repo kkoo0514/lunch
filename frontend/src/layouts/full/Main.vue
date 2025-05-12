@@ -51,7 +51,7 @@ const sDrawer = ref(true);
                     <Menu2Icon size="20" stroke-width="1.5" />
                 </v-btn>
                 <!-- Notification -->
-                <NotificationDD />
+<!--                <NotificationDD /> 점박이 코딱지 제거 -->
             </div>
             <div>
                 <!-- User Profile -->

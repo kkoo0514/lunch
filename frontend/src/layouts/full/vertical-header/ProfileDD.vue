@@ -9,9 +9,9 @@ import { UserIcon, MailIcon, ListCheckIcon } from 'vue-tabler-icons';
     <v-menu :close-on-content-click="false">
         <template v-slot:activator="{ props }">
             <v-btn class="profileBtn custom-hover-primary" variant="text" v-bind="props" icon>
-                <v-avatar size="35">
+                <v-avatar size="50">
 <!--                    <img src="@/assets/images/users/user-1.jpg" height="35" alt="user" />-->
-                    <img src="https://i.namu.wiki/i/42ZVlDMjyjshPUplcbcKx_2d63SwtI0QRbS74ryJVjAu-plw-5Ttc_1m6PsnuqqvcZ2Qga0RORWhzl-_370Uhg.webp" height="35" alt="user" />
+                    <img src="https://i.namu.wiki/i/42ZVlDMjyjshPUplcbcKx_2d63SwtI0QRbS74ryJVjAu-plw-5Ttc_1m6PsnuqqvcZ2Qga0RORWhzl-_370Uhg.webp" height="50" alt="user" />
                 </v-avatar>
             </v-btn>
         </template>
