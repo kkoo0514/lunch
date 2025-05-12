@@ -37,7 +37,7 @@ async def getPlace():
         cursor = conn.cursor()
 
         # 3) 쿼리 실행
-        cursor.execute("SELECT * FROM t_place;")
+        cursor.execute("select id, name, category, cuisine_type, (select AVG(rating) from t_place_review where id = tp.id group by id) as rating, (select count(rating) from t_place_review where id = tp.id group by id) as ratingCount, (select AVG(price) from t_place_review where id = tp.id group by id) as priceAvg from t_place tp;")
         rows = cursor.fetchall()
         columns = [desc[0] for desc in cursor.description]
 
