@@ -25,3 +25,4 @@ ENV/
 sql_app.db
 .idea
 db/
+frontend/node_modules/
