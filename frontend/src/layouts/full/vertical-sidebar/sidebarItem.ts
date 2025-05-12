@@ -80,20 +80,33 @@ export interface menu {
 const sidebarItem: menu[] = [
     { header: 'Home' },
     {
-        title: 'Dashboard',
+        title: '식사 일정표',
         icon: LayoutDashboardIcon,
         to: '/',
         external: false
     },
+    { header: 'Extra' },
+    {
+      title: '우리가 가본 음식점',
+      icon: ApertureIcon,
+      to: '/sample-page',
+      external: false
+    },
+    {
+      title: '기타',
+      icon: MoodHappyIcon,
+      to: '/icons',
+      external: false
+    },
     { header: 'utilities' },
     {
-        title: 'Typography',
+        title: '잡1',
         icon: TypographyIcon,
         to: '/ui/typography',
         external: false
     },
     {
-        title: 'Shadow',
+        title: '잡2',
         icon: CopyIcon,
         to: '/ui/shadow',
         external: false
@@ -101,30 +114,17 @@ const sidebarItem: menu[] = [
 
     { header: 'auth' },
     {
-        title: 'Login',
+        title: '로그인',
         icon: LoginIcon,
         to: '/auth/login',
         external: false
     },
     {
-        title: 'Register',
+        title: '회원가입',
         icon: UserPlusIcon,
         to: '/auth/register',
         external: false
     },
-    { header: 'Extra' },
-    {
-        title: 'Icons',
-        icon: MoodHappyIcon,
-        to: '/icons',
-        external: false
-    },
-    {
-        title: 'Sample Page',
-        icon: ApertureIcon,
-        to: '/sample-page',
-        external: false
-    }
 ];
 
 export default sidebarItem;

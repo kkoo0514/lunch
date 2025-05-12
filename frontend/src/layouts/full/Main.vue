@@ -3,7 +3,6 @@ import { ref, shallowRef } from 'vue';
 import sidebarItems from './vertical-sidebar/sidebarItem';
 import NavGroup from './vertical-sidebar/NavGroup/index.vue';
 import NavItem from './vertical-sidebar/NavItem/index.vue';
-import ExtraBox from './vertical-sidebar/extrabox/ExtraBox.vue';
 import Logo from './logo/Logo.vue';
 // Icon Imports
 import { Menu2Icon} from 'vue-tabler-icons';
@@ -39,9 +38,6 @@ const sDrawer = ref(true);
                     <!---End Single Item-->
                 </template>
             </v-list>
-            <div class="pa-4">
-                <ExtraBox />
-            </div>
         </perfect-scrollbar>
     </div>
 
@@ -58,8 +54,6 @@ const sDrawer = ref(true);
                 <NotificationDD />
             </div>
             <div>
-                <!-- Upgrade button -->
-                <v-btn class="mr-2 bg-secondary" href="https://www.wrappixel.com/templates/flexy-vuetify-dashboard/?ref=376#demos" target="_blank">Check Pro Template</v-btn>
                 <!-- User Profile -->
                 <ProfileDD />
             </div>
