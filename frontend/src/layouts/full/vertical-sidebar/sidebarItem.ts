@@ -80,18 +80,18 @@ export interface menu {
 const sidebarItem: menu[] = [
     { header: 'Home' },
     {
-        title: '식사 일정표',
-        icon: LayoutDashboardIcon,
-        to: '/',
-        external: false
-    },
-    { header: 'Extra' },
-    {
       title: '우리가 가본 음식점',
       icon: ApertureIcon,
-      to: '/sample-page',
+      to: '/shop-list',
       external: false
     },
+    // {
+    //     title: '식사 일정표',
+    //     icon: LayoutDashboardIcon,
+    //     to: '/',
+    //     external: false
+    // },
+    { header: 'Extra' },
     {
       title: '기타',
       icon: MoodHappyIcon,

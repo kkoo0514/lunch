@@ -3,7 +3,6 @@
 import SalesOverview from '@/components/dashboard/SalesOverview.vue';
 import RecentTransaction from '@/components/dashboard/RecentTransaction.vue';
 import ProductPerformance from '@/components/dashboard/ProductPerformance.vue';
-import ProductCards from '@/components/dashboard/ProductCards.vue';
 </script>
 <template>
     <v-row>
@@ -21,10 +20,6 @@ import ProductCards from '@/components/dashboard/ProductCards.vue';
                 <!-- Product performence -->
                 <v-col cols="12" lg="8">
                     <ProductPerformance />
-                </v-col>
-                <!-- Product Cards -->
-                <v-col cols="12">
-                    <ProductCards />
                 </v-col>
             </v-row>
         </v-col>

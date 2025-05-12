@@ -28,8 +28,8 @@ const MainRoutes = {
         },
         {
             name: 'Starter',
-            path: '/sample-page',
-            component: () => import('@/views/pages/SamplePage.vue')
+            path: '/shop-list',
+            component: () => import('@/views/pages/ShopList.vue')
         },
     ]
 };
