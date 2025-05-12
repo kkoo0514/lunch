@@ -23,7 +23,7 @@ services:
 #      - db
     depends_on: []
     environment:
-      DB_HOST: 172.26.192.1
+      DB_HOST: 10.1.31.189
       DB_PORT: 3306
       DB_USER: admin
       DB_PASSWORD: coreit1993
