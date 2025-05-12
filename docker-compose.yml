@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: lunch_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: coreit1993
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/var/lib/mysql
+
+  fastapi:
+    build: ./backend
+    container_name: fastapi-app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: admin
+      DB_PASSWORD: coreit1993
+      DB_NAME: lunch_db
+
+  frontend:
+      build: ./frontend
+      container_name: frontend-app
+      ports:
+        - "8080:80"  # Nginx 포트
+      depends_on:
+        - fastapi
+      networks:
+        - app-network
+
+networks:
+  app-network:
+    driver: bridge
