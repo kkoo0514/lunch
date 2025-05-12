@@ -8,7 +8,7 @@ const item = ref()
 
 const fetchMenus = async () => {
   try {
-    const response = await axios.get('http://localhost:8000/getPlace')
+    const response = await axios.get('http://10.1.31.189:8000/getPlace')
     item.value = response.data.result
   } catch (error) {
     console.error('메뉴 목록을 가져오는데 실패했습니다:', error)
