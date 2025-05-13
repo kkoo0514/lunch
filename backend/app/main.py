@@ -76,7 +76,7 @@ async def getPlaceById(id : int):
 
     try:
         cursor = conn.cursor()
-        query = "SELECT * FROM t_place WHERE id = %s"
+        query = "SELECT id, name,address,phone, category, cuisine_type, DATE_FORMAT(created_at, '%Y-%m-%d') as created_at FROM t_place WHERE id = %s"
         cursor.execute(query, (id,))
         row = cursor.fetchone()
 

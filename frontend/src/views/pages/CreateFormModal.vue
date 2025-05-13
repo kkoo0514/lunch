@@ -1,5 +1,5 @@
 <template>
-    <div class="modal-backdrop" @click.self="close">
+    <div class="modal-backdrop" >
       <div class="modal-container">
         <div class="modal-header">상세보기</div>
   
