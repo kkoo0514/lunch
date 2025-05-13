@@ -4,6 +4,15 @@ import mysql.connector
 from mysql.connector import errorcode
 import os
 from pydantic import BaseModel
+from typing import Optional
+
+class PlaceForm(BaseModel):
+    name: str
+    address: str
+    phone: str
+    category: str
+    cuisine_type: str
+    created_at: str
 
 class PlaceRequest(BaseModel):
     id: int
@@ -13,7 +22,7 @@ app = FastAPI(title="FastAPI Backend")
 # CORS 설정
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://10.1.31.189:5173"],  # 실제 프로덕션에서는 특정 도메인만 허용하도록 수정
+    allow_origins=["*"],  # 실제 프로덕션에서는 특정 도메인만 허용하도록 수정
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -59,8 +68,8 @@ async def getPlace():
             cursor.close()
     return {"message": message,"result":result}
 
-@app.get("/getPlaceById")
-async def get_place_by_id(request: PlaceRequest):
+@app.get("/getPlaceById/{id}")
+async def getPlaceById(id : int):
     result = None
     cursor = None
     message = 'success'
@@ -68,7 +77,7 @@ async def get_place_by_id(request: PlaceRequest):
     try:
         cursor = conn.cursor()
         query = "SELECT * FROM t_place WHERE id = %s"
-        cursor.execute(query, (request.id,))
+        cursor.execute(query, (id,))
         row = cursor.fetchone()
 
         if row:
@@ -90,3 +99,30 @@ async def get_place_by_id(request: PlaceRequest):
             cursor.close()
 
     return {"message": message, "result": result}
+
+@app.put("/savePlace/{id}")
+async def save_place(id: str, place: PlaceForm):
+    cursor = conn.cursor()
+
+    query = """
+            UPDATE t_place
+            SET name = %s, address = %s, phone = %s, category = %s, cuisine_type = %s, created_at = %s
+            WHERE id = %s \
+            """
+    cursor.execute(query, (place.name, place.address, place.phone, place.category, place.cuisine_type, place.created_at, id))
+    message = "Place updated successfully"
+
+    conn.commit()
+    return {"message": message, "id": id}
+
+@app.post("/savePlace")
+async def create_place(place: PlaceForm):
+    cursor = conn.cursor()
+
+    query = """
+            INSERT INTO t_place (name, address, phone, category, cuisine_type, created_at)
+            VALUES ( %s, %s, %s, %s, %s, NOW()) \
+            """
+    cursor.execute(query, (place.name, place.address, place.phone, place.category, place.cuisine_type))
+    conn.commit()
+    return {"message": "Place inserted successfully"}
