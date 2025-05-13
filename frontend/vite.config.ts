@@ -17,4 +17,15 @@ export default defineConfig({
       '@': '/src', //@를 src 폴더로 매핑
     },
   },
+  server: {
+    port: 5173,
+    proxy: {
+      '/api': {
+        target: 'http://10.1.31.189:8000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+    cors: true,
+  }
 })
