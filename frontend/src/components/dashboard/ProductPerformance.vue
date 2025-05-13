@@ -6,6 +6,10 @@ const select = ref('March 2025');
 const items = ref(['March 2025', 'April 2025', 'May 2025', 'June 2025']);
 const item = ref()
 
+const emit = defineEmits<{
+  (e: 'getOpenDetail', value: string): void
+}>()
+
 const fetchMenus = async () => {
   try {
     const response = await axios.get('http://10.1.31.189:8000/getPlace')
@@ -14,6 +18,12 @@ const fetchMenus = async () => {
     console.error('메뉴 목록을 가져오는데 실패했습니다:', error)
   }
 }
+
+const sendToParent = (id : string) => {
+  emit('getOpenDetail', id)
+}
+
+defineExpose({ fetchMenus })
 
 onMounted(() => {
   fetchMenus()
@@ -45,7 +55,7 @@ onMounted(() => {
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="item in item" :key="item.name" class="month-item">
+                <tr v-for="item in item" :key="item.id" class="month-item" @click="sendToParent(item.id)">
                     <td>
                         <p class="text-15 font-weight-medium">{{ item.id }}</p>
                     </td>

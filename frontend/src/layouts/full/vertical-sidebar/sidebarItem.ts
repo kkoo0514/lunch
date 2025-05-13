@@ -82,7 +82,7 @@ const sidebarItem: menu[] = [
     {
       title: '우리가 가본 음식점',
       icon: ApertureIcon,
-      to: '/shop-list',
+      to: '/place-list',
       external: false
     },
     // {
